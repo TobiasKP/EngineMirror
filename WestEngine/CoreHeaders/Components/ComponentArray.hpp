@@ -2,6 +2,7 @@
 
 #include "../Interfaces/IComponentArray.hpp"
 
+#include <array>
 #include <CoreConstants.hpp>
 #include <unordered_map>
 
