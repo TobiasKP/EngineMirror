@@ -17,6 +17,7 @@ The project is activly developed further privately. Issues active by the time of
 **Platforms:** 
 
 Linux: Arch v6.15.2, tested both release and debug build sucessfully, with cmake v4.1.1, gcc v15.1.1, nvidia driver v575.57.08, lua v5.4.8. 
+**NOTE**: gcc v14.x.x in combination with ARM64 Architektur will lead to compile errors. This is due to incompatability between the Architecture and gcc14, downgrade to 13 or try a different compiler (e.g. clang)
 
 Windows: Tested with the latest installation of Visual Studio Community 2026 v18.3.1
 
@@ -49,7 +50,7 @@ cmake --build --preset <your-preset>
 
 Module-specific debug builds are also available (e.g. `linux-debug-core`, `windows-debug-ui`). See `CMakePresets.json` for all options.
 
-**Note:** You may find MacOs build presets in the CMakePresets. MacOS is currently NOT supported since MacOs stopped OpenGL support after v4.1, future support is planned but not yet implemented or tested, so runconfigs will not work.
+**Note:** You may find MacOs build presets in the CMakePresets. MacOS is currently NOT supported since MacOs stopped OpenGL support after v4.1, the project is downgraded but never tested. Future support is planned but not yet implemented or tested, so runconfigs will probably not work.
 
 The executable `WestCore` will be located in the projects root folder following the path: `build/<preset>/WestEngine/`. 
 
@@ -66,17 +67,18 @@ Managed via [vcpkg](https://learn.microsoft.com/en-us/vcpkg):
 | Lua | Embedded scripting |
 | GLM | Mathematics (vectors, matrices, transforms) |
 | STB | Image loading |
+| GTEST | Testing |
 
 ## Features
 
 | System | Status | Description |
 |--------|--------|-------------|
-| ECS (Entity-Component-System) | Implemented | Bitmask-based component storage, entity pooling, system dispatch |
+| ECS (Entity-Component-System) | Implemented | standard ECS designs |
 | OpenGL Rendering | Implemented | Shader management, instanced UI rendering, debug visualization |
 | Lua Scripting | Implemented | Bidirectional C++/Lua bridge for game logic and entity definitions |
 | UI Framework | Implemented | Buttons, labels, dropdowns, observer-based events, settings interface |
 | Tile-Based World | Implemented | Grid coordinate system, Manhattan distance pathfinding, GPU-driven tile rendering |
-| Input System | Implemented | Configurable keybindings, keyboard/mouse callbacks, observer pattern |
+| Input System | Implemented | Configurable keybindings, keyboard/mouse callbacks, event system pattern |
 | Threading | Implemented | Thread pool, fire-and-forget tasks, hardware-aware thread count |
 | Memory Pooling | Implemented | Custom pool allocator for entities with free-list management |
 | Logging | Implemented | Multi-stream logger (info, error, cycle) with thread-safe writes |
