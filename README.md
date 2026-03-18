@@ -17,9 +17,12 @@ The project is activly developed further privately. Issues active by the time of
 **Platforms:** 
 
 Linux: Arch v6.15.2, tested both release and debug build sucessfully, with cmake v4.1.1, gcc v15.1.1, nvidia driver v575.57.08, lua v5.4.8. 
+
 **NOTE**: gcc v14.x.x in combination with ARM64 Architektur will lead to compile errors. This is due to incompatability between the Architecture and gcc14, downgrade to 13 or try a different compiler (e.g. clang)
 
 Windows: Tested with the latest installation of Visual Studio Community 2026 v18.3.1
+
+**NOTE**: Sometimes VS opens the project before it registeres cmake, either trigger it manually or reopen the cloned project. 
 
 ## Building
 
