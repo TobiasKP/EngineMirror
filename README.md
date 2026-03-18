@@ -6,6 +6,11 @@ This is a personal project developed to explore system architecture, system desi
 
 The project is activly developed further privately. Issues active by the time of creation were transfered into @TODO statements in the code to keep the display repository clean. 
 
+## Demo
+
+https://github.com/user-attachments/assets/af5479fc-73f1-4880-8ef0-2a7f07452963
+
+
 ## Requirements
 
 **Software:**
