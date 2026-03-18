@@ -58,11 +58,9 @@ The reason for this split rather than a monolithic structure: each module can be
 
 ## Why ECS Over Inheritance Hierarchies
 
-A traditional deep inheritance tree (e.g. `GameObject → Character → Player`) creates rigid coupling. Adding a new behavior means modifying the hierarchy or using multiple inheritance, both of which scale poorly. The component approach used here keeps entities as lightweight containers. An `Entity` holds an ID, a component bitmask (`uint16_t`), and a map of components. Behavior is defined by which components are attached, not by class lineage. Systems iterate over entities that match their required component mask.
+A traditional deep inheritance tree (e.g. `GameObject → Character → Player`) creates rigid coupling. Adding a new behavior means modifying the hierarchy or using multiple inheritance, both of which scale poorly, specially with cache locality. The component approach used here keeps entities as lightweight containers. An `Entity` holds an ID and a component bitmask (`uint16_t`, *deprecated*). Behavior is defined by which components are attached, not by class lineage. Systems iterate over components instead over entities.
 
 This makes it straightforward to define new entity types entirely in Lua without touching C++ code. A "player" and a "decoration" are the same `Entity` class — they differ only in their component set.
-
-The bitmask approach was chosen over a full archetype-based ECS (like EnTT) to keep the implementation transparent and debuggable at the cost of a 16-component limit for the current state of the engine and is planned to be removed in the near future (look at known limitations).
 
 ## Why Lua for Scripting
 
@@ -113,6 +111,7 @@ This order is intentional: input must be polled before systems process it, shade
 - **Single-scene model**: One active scene at a time. Scene transitions require full unload/reload.
 - **No asset pipeline**: Models are loaded from OBJ files at startup. A production engine would need streaming, caching, and format optimization.
 - **Result types over integer error codes**: `startup()` as well as all other functions throughout the project return `int32_t` for success/failure. My idea was avoiding try catch or error overhead. Avoiding this overhead was a delibirate choice for a frame-loop engine.
+- **Global State**: The utils config classes carry a lot of global state that is uneccessarry complex and bad to maintain
 
 ## What I would change if i had to start new
 
