@@ -8,7 +8,7 @@ The project is activly developed further privately. Issues active by the time of
 
 ## Demo
 
-https://github.com/user-attachments/assets/af5479fc-73f1-4880-8ef0-2a7f07452963
+https://github.com/user-attachments/assets/21c02a9c-6f21-474f-9987-6b8ede8a2ac7
 
 
 ## Requirements
