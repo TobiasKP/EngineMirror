@@ -36,7 +36,7 @@ Windows: Tested (debug build) with a installation of Visual Studio Community 202
 Clone with submodules (vcpkg is included as a submodule for dependency management):
 
 ```bash
-git clone --recurse-submodules https://github.com/TobiasKP/WestEngine.git
+git clone --recurse-submodules https://github.com/TobiasKP/EngineMirror.git
 ```
 
 If already cloned without submodules:
